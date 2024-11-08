@@ -153,19 +153,13 @@ server {
     server_name _;
 
     location / {
-        proxy_pass http://localhost:3000;  # Change to the correct port your app runs on
+        proxy_pass http://localhost:5050;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }
-
-    # Optionally: Redirect HTTP to HTTPS
-    # Uncomment the following block if SSL is set up
-    # location / {
-    #     return 301 https://$host$request_uri;
-    # }
 }
 ```
 
